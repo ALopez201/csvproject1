@@ -1,0 +1,132 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="jumbotron text-center">
+  <div class="container">
+    <a href="/" class="lang-logo">
+      <img src="/images/IMG_0214.png">
+    </a>
+    <h1>Hey there! Welcome to Anthony's start-up page.</h1>
+    <p>This is a sample PHP application deployed to Heroku by Anthony Lopez. While you're here, check out some of the links, located in the table (below this message).-</p>
+    <a type="button" class="btn btn-lg btn-default" href="https://devcenter.heroku.com/articles/getting-started-with-php"><span class="glyphicon glyphicon-flash"></span> Getting Started with PHP</a>
+    <a type="button" class="btn btn-lg btn-primary" href="https://github.com/heroku/php-getting-started"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
+  </div>
+</div>
+
+  <div class="container">
+  <h2>Anthony's Summer Course Table</h2>
+  <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>
+    <p>The message above is for Anthony's reference, Anthony made this table to record his grades and for those who visit the page to contact the professors if they want to.</p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Course Name</th>
+        <th>Professor</th>
+        <th>Grade</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>FIN315</td>
+        <td>Professor Chou</td>
+        <td>*Grade Not Yet Available</td>
+        <td><li><a href="https://management.njit.edu/faculty/pchou">Professor Chou's Profile</a></li></td>
+      </tr>
+      <tr>
+        <td>IT310</td>
+        <td>Professor Statica</td>
+        <td>*Grade Not Yet Available*</td>
+        <td><li><a href="https://informatics.njit.edu/faculty/statica">Professor Statica's Profile</a></li></td>
+      </tr>
+      <tr>
+        <td>IS218</td>
+        <td>Professor Williams</td>
+        <td>*Grade Not Yet Available*</td>
+        <td><li><a href="https://informatics.njit.edu/faculty/kwilliam">Professor Williams' Profile</a></li></td>
+      </tr>
+      <tr>
+        <td>HIST390</td>
+        <td>Professor Riismandel</td>
+        <td>*Grade Not Yet Available*</td>
+        <td><li><a href="https://history.njit.edu/faculty/kriis">Professor Riismandel's Profile</a></li></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  <div>
+    <html>
+    <head>
+      <style>p {
+          text-indent: 2.0em;
+        }
+      </style>
+    </head>
+    <body>
+      <p>So, to begin, I just wanna highlight the semester I just had last spring. Firstly, I took the max amount of credits you could take at NJIT (19).
+      This was pretty tough on me, because I haven't taken that many classes previously. There were 7 classes in total, which might seem like a lot until you
+      know which classes they were and how many credits they were worth. To sum it up, I was taking all classes required for my major. All but 1 was worth 3 credits.
+      My YWCC207 class was just 1 credit, so it was done early. Now that you should be somewhat familiar with what my schedule was like last semester, I want to discuss
+      my challenges.
+      </p>
+
+      <p>My first challenge was understanding some of the material taught in class. I understand professors are professionals, however, part of their job is to do their
+      best to get students to understand the material. I am aware that some students might not apply the effort necessary to learn. Even people like me, who don't really have
+      that great a foundation in programming or application developing find it difficult to learn certain concepts. Another challenge of mine was time management. As I stated
+      earlier, I had not taken this many classes prior to last semester. This led to me being overwhelmed at times because of how much I had to complete within a certain time
+      span. Although there were other things which partially detered me from completing my work, these were the most prevalent to me.
+      </p>
+
+      <p>To conclude, last semester wsa hectic at times. There were many things I, thankfully, got done and other things I wasn't able to do. One of those was exercising.
+      Aside from being busy with classes, I also had a wrist injury which is still bothering me to this day. It doesnt seem like a major thing, just a minor tear or sprain with a
+      lingering pain I am hoping will heal and subside. Overall, the grades I got were wonderfully surprising. 5 'A's and 2 'B+'s. As much as I wanted to quit at times, I kept
+      reminding myself to be thankful of where I am, and that my situation wasn't bad at all. This got me thru and I am thankful for the outcome. I am now taking 4 summer classes
+      which I intend to give my optimal effort towards.
+      </p>
+  </div>
+
+
+
+<div class="container">
+  <div class="alert alert-info text-center" role="alert">
+    To deploy your own copy, and learn the fundamentals of the Heroku platform, head over to the <a href="https://devcenter.heroku.com/articles/getting-started-with-php" class="alert-link">Getting Started with PHP on Heroku</a> tutorial.
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-md-6">
+      <h3><span class="glyphicon glyphicon-info-sign"></span> How this sample app works</h3>
+      <ul>
+        <li>This app was deployed to Heroku, either using Git or by using <a href="https://github.com/heroku/php-getting-started">Heroku Button</a> on the repository.</li>
+
+        <li>When Heroku received the source code, it fetched all the dependencies in the <a href="https://github.com/heroku/php-getting-started/blob/master/composer.json">composer.json</a>, creating a deployable slug.</li>
+        <li>The platform then spins up a dyno, a lightweight container that provides an isolated environment in which the slug can be mounted and executed.</li>
+        <li>You can scale your app, manage it, and deploy over <a href="https://addons.heroku.com/">150 add-on services</a>, from the Dashboard or CLI.</li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <h3><span class="glyphicon glyphicon-link"></span> Next Steps</h3>
+      <ul>
+        <li>If you are following the <a href="https://devcenter.heroku.com/articles/getting-started-with-php">Getting Started</a> guide, then please head back to the tutorial and follow the next steps!</li>
+        <li>If you deployed this app by deploying the Heroku Button, then in a command line shell, run:</li>
+        <ul>
+          <li><code>git clone https://github.com/heroku/php-getting-started.git</code> - this will create a local copy of the source code for the app</li>
+          <li><code>cd php-getting-started</code> - change directory into the local source code repository</li>
+          <li><code>heroku git:remote -a &lt;your-app-name></code> - associate the Heroku app with the repository</li>
+          <li>You'll now be set up to run the app locally, or <a href="https://devcenter.heroku.com/articles/getting-started-with-php#push-local-changes">deploy changes</a> to Heroku</li>
+        </ul>
+      </ul>
+      <h3><span class="glyphicon glyphicon-link"></span> Helpful Links</h3>
+      <ul>
+        <li><a href="https://www.heroku.com/home">Heroku</a></li>
+        <li><a href="https://devcenter.heroku.com/">Heroku Dev Center</a></li>
+        <li><a href="https://devcenter.heroku.com/articles/getting-started-with-php">Getting Started with PHP on Heroku</a></li>
+        <li><a href="https://devcenter.heroku.com/articles/deploying-php">Deploying PHP Apps on Heroku</a></li>
+      </ul>
+    </div>
+  </div> <!-- row -->
+   <div class="alert alert-info text-center" role="alert">
+    Please do work through the Getting Started guide, even if you do know how to build such an application.  The guide covers the basics of working with Heroku, and will familiarize you with all the concepts you need in order to build and deploy your own apps.
+  </div>
+</div>
+
+{% endblock %}
