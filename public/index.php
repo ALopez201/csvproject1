@@ -1,3 +1,18 @@
 <?php
 
-echo 'heroku attempt 6-25-19';
+main::start();
+
+class main {
+
+    static public function start() {
+        $records = csv::getRecords();
+        $table = html::generateTable($records);
+        system::printPage($table);
+
+    }
+
+}
+
+class csv {}
+class html {}
+class system {}
