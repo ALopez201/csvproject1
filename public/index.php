@@ -3,16 +3,19 @@
 main::start();
 
 class main {
+    static public function start()
+    {
+        $file = fopen("SalesJan2009.csv", "r");
+        while(!feof($file))
 
-    static public function start() {
-        $records = csv::getRecords();
-        $table = html::generateTable($records);
-        system::printPage($table);
+        {
+            $record = fgetcsv($file);
+
+            $records[] = $record;
+        }
+
+        fclose($file);
+        print_r($records);
 
     }
-
 }
-
-class csv {}
-class html {}
-class system {}
