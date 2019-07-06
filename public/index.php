@@ -40,12 +40,25 @@ class html{
     public static function generateTable($records) {
 
         foreach ($records as $record) {
+            if($count == 0) {
 
-            $array = $record->returnArray();
-            print_r($array);
+                $array = $record->returnArray();
+                $fields = array_keys($array);
+                $values = array_values($array);
+                print_r($fields);
+                print_r($values);
+
+            } else {
+                $array = $record->returnArray();
+
+                $values = array_values($array);
+                print_r($values);
+
+
+
+            }$count++;
 
         }
-
     }
 }
 
@@ -104,8 +117,8 @@ class record{
 
     }
 
-    public function createRow() {
-        print_r($this);
+    public function returnArray() {
+        $array = (array) $this;
     }
 
 
