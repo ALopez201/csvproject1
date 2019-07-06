@@ -146,16 +146,13 @@ class recordFactory {
 }
 
 class theader {
-    /** class to create the header for the table */
     static public function create_header($record,$table) {
-        /** add to the variable table the opener for the table header */
         $table .= "<thead><tr>";
-        /** loop to create columns in the header */
-        foreach ($record as $column) {
+        foreach ($record as $row) {
             $table .= "<th scope='col'>$column</th>";
         }
         $table .= "</tr></thead>";
-        /** returning the variable table back to the html class */
+
         return $table;
     }
 }
