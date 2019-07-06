@@ -22,32 +22,60 @@ class main {
     static public function start($filename) {
 
 
-        $records = csv::getRecords($filename);
 
-        print_r($records);
+
+        $records = csv::getRecords($filename);
+        $table = html::generateTable($records);
+
+
+
+
 
     }
 
+}
+
+class html{
+
+    public static function generateTable($records) {
+
+        foreach ($records as $record) {
+
+            $array = $record->returnArray();
+            print_r($array);
+
+        }
+
+    }
 }
 
 
 
 
 class csv {
-    /**
-     * @param $filename
-     * @return array
-     */
+
+
     static public function getRecords($filename) {
 
+
+
         $file = fopen($filename, "r");
+        $fieldNames = array();
+
+        $count = 0;
 
         while(! feof($file))
         {
 
             $record = fgetcsv($file);
+            if($count == 0) {
+                $fieldNames = $record;
+            } else {
+                $records[] = recordFactory::create($fieldNames, $record);
+            }
+            $count++;
 
-            $records[] = $record;
+            $records[] = recordFactory::create($record);
 
         }
 
@@ -58,15 +86,48 @@ class csv {
 
 }
 
-class record{}
 
-class recordfactory {
+class record{
 
-    public static function create(Array $array = null) {
+    public function __construct(Array $fieldNames = null, $values = null)
+    {
 
-        $record = new record();
+
+        $record = array_combine($fieldNames, $values);
+
+        foreach ($record as $property => $value) {
+            $this->createProperty($property, $value);
+        }
+
+
+
+
+    }
+
+    public function createRow() {
+        print_r($this);
+    }
+
+
+    public function createProperty($name = 'Name', $value = 'carolina') {
+
+        $this->{$name} = $value;
+
+    }
+}
+
+class recordFactory {
+
+    public static function create(Array $fieldNames = null, Array $values = null) {
+        print_r($fieldNames);
+        print_r($record);
+
+
+        $record = new record($fieldNames, $values);
 
         return $record;
+
+
 
     }
 }
