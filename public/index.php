@@ -40,7 +40,46 @@ class html{
     public static function generateTable($records) {
         $count = 0;
 
-        $table = "<table class='table table-striped'>";
+        echo
+
+        $row = 1;
+        if (($handle = fopen("example.csv", "r")) !== FALSE) {
+
+            echo '<table border="1">';
+
+            while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
+                $num = count($data);
+                if ($row == 1) {
+                    echo '<thead><tr>';
+                } else {
+                    echo '<tr>';
+                }
+
+                for ($c = 0; $c < $num; $c++) {
+                    //echo $data[$c] . "<br />\n";
+                    if (empty($data[$c])) {
+                        $value = "&nbsp;";
+                    } else {
+                        $value = $data[$c];
+                    }
+                    if ($row == 1) {
+                        echo '<th>' . $value . '</th>';
+                    } else {
+                        echo '<td>' . $value . '</td>';
+                    }
+                }
+
+                if ($row == 1) {
+                    echo '</tr></thead><tbody>';
+                } else {
+                    echo '</tr>';
+                }
+                $row++;
+            }
+
+            echo '</tbody></table>';
+            fclose($handle);
+        };
 
         foreach ($records as $record) {
             if($count == 0) {
@@ -48,14 +87,14 @@ class html{
                 $array = $record->returnArray();
                 $fields = array_keys($array);
                 $values = array_values($array);
-                print_r($fields);
-                print_r($values);
+
+
 
             } else {
                 $array = $record->returnArray();
                 $values = array_values($array);
 
-                print_r($values);
+
 
 
 
@@ -96,7 +135,7 @@ class csv {
         }
 
         fclose($file);
-        return $records;
+
 
     }
 
@@ -135,12 +174,11 @@ class record{
 class recordFactory {
 
     public static function create(Array $fieldNames = null, Array $values = null) {
-        print_r($fieldNames);
 
 
         $record = new record($fieldNames, $values);
 
-        return $record;
+
 
 
 
