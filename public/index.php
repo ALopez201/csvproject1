@@ -15,7 +15,7 @@
 
 <?php
 
-main::start("SalesJan2009.csv");
+main::start("example.csv");
 
 class main {
 
@@ -25,7 +25,7 @@ class main {
 
 
         $records = csv::getRecords($filename);
-        $table = html::generateTable($records);
+        html::generateTable($records);
 
 
 
@@ -38,6 +38,9 @@ class main {
 class html{
 
     public static function generateTable($records) {
+        $count = 0;
+
+        $table = "<table class='table table-striped'>";
 
         foreach ($records as $record) {
             if($count == 0) {
@@ -50,8 +53,8 @@ class html{
 
             } else {
                 $array = $record->returnArray();
-
                 $values = array_values($array);
+
                 print_r($values);
 
 
@@ -122,7 +125,7 @@ class record{
     }
 
 
-    public function createProperty($name = 'Name', $value = 'carolina') {
+    public function createProperty($name, $value) {
 
         $this->{$name} = $value;
 
@@ -133,7 +136,6 @@ class recordFactory {
 
     public static function create(Array $fieldNames = null, Array $values = null) {
         print_r($fieldNames);
-        print_r($record);
 
 
         $record = new record($fieldNames, $values);
@@ -142,17 +144,9 @@ class recordFactory {
 
 
 
+
+
     }
 }
 
-class theader {
-    static public function create_header($record,$table) {
-        $table .= "<thead><tr>";
-        foreach ($record as $row) {
-            $table .= "<th scope='col'>$column</th>";
-        }
-        $table .= "</tr></thead>";
 
-        return $table;
-    }
-}
